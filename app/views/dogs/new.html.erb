@@ -1,0 +1,23 @@
+<!-- app/views/dogs/new.html.erb -->
+
+<%= turbo_frame_tag 'dog_form' do %>
+  <h1>Collect your favorite dog breed images.</h1>
+  <div class="max-w-md my-8">
+    <%= form_with model: @dog, url: dogs_path, method: :post, data: { turbo_frame: 'dog_form' } do |form| %>
+      <div class="mb-4">
+        <%= form.label :breed_name, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.text_field :breed_name, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+      </div>
+
+      <div class="mb-6">
+        <%= form.submit 'Submit', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<!-- Display dog breed image here -->
+<div class="max-w-md my-8 w-full flex items-center">
+  <%= turbo_frame_tag 'dog_image' %>
+</div>
+

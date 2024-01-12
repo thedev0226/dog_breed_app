@@ -1,0 +1,6 @@
+<!-- app/views/dogs/_image.html.erb -->
+
+<%= turbo_frame_tag 'dog_image' do %>
+  <img src="<%= breed_image %>" alt="Dog Breed Image" class="rounded shadow-md">
+  <p class="text-center mt-4 text-gray-700"><%= @dog.breed_name %></p>
+<% end %>
