@@ -20,7 +20,7 @@ class DogApiService
     response = Faraday.get("#{BASE_URL}/breeds/list/all")
     json = JSON.parse(response.body)
 
-    if response.success? && json['message'].is_a?(Array)
+    if response.success? && json['message'].is_a?(Hash)
       Result.new(true, json['message'].keys, nil)
     else
       Result.new(false, nil, "Error connecting to Dog API")
